@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study_demo/demo1/demo1.dart';
+import 'package:flutter_study_demo/widget/ImageDemo.dart';
 
-void main() => runApp(ShowApp());
+import 'widget/TextDemo.dart';
+
+void main() => runApp(ImageApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -10,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
       ),
-      home: ShowApp(),
+      home: ImageApp(),
     );
   }
 }
