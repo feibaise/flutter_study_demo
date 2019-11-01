@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study_demo/demo1/demo1.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(ShowApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: ShowApp(),
     );
   }
 }
