@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study_demo/widget/ButtonDemo.dart';
 import 'package:flutter_study_demo/widget/ImageDemo.dart';
 
 import 'widget/TextDemo.dart';
 
-void main() => runApp(ImageApp());
+void main() => runApp(ButtonApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
       ),
-      home: ImageApp(),
+      home: ButtonApp(),
     );
   }
 }
