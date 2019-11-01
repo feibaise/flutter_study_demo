@@ -62,7 +62,7 @@ class ButtonPageState extends State<ButtonPage> {
                     FlatButton.icon(
                       disabledColor: Colors.teal,
                       label:
-                          Text('FLAT BUTTON', semanticsLabel: 'FLAT BUTTON 2'),
+                      Text('FLAT BUTTON', semanticsLabel: 'FLAT BUTTON 2'),
                       icon: Icon(Icons.add_circle_outline, size: 18.0),
                       onPressed: () {},
                     ),
@@ -198,7 +198,6 @@ class ButtonPageState extends State<ButtonPage> {
       ),
     );
   }
-
   @override
   void initState() {
     // TODO: implement initState
