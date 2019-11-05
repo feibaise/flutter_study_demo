@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study_demo/widget/AlerDialogDemo.dart';
 import 'package:flutter_study_demo/widget/ButtonDemo.dart';
 import 'package:flutter_study_demo/widget/ImageDemo.dart';
+import 'package:flutter_study_demo/widget/TextFieldAndFormDemo.dart';
 
 import 'layout/AppBarDemo.dart';
 import 'layout/ScaffoldDemo.dart';
 import 'widget/TextDemo.dart';
 
-void main() => runApp(AlertDialogApp());
+void main() => runApp(TextFieldApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
       ),
-      home: AlertDialogApp(),
+      home: TextFieldApp(),
     );
   }
 }
