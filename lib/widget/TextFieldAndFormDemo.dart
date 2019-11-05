@@ -31,84 +31,89 @@ class TextFieldPageState extends State<TextFieldPage> {
         title: Text('TextField 和 Form demo'),
         primary: true,
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            TextField(
-              decoration:
-                  InputDecoration(hintText: "输入用户名", icon: Icon(Icons.person)),
-            ),
-            Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  maxLines: 1,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                          borderSide: BorderSide(color: Colors.grey)),
-                      labelText: '用户名',
-                      hintText: "输入用户名",
-                      icon: Icon(Icons.email)),
-                )),
-            Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  textInputAction: TextInputAction.done,
-                  maxLines: 1,
-                  keyboardType: TextInputType.text,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                          borderSide: BorderSide(color: Colors.grey)),
-                      labelText: '密码',
-                      hintText: "输入密码",
-                      icon: Icon(Icons.lock)),
-                )),
+      //加上滑动页避免填写表单出现超界报错
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              TextField(
+                decoration:
+                InputDecoration(hintText: "输入用户名", icon: Icon(Icons.person)),
+              ),
+              Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TextField(
+                    maxLines: 1,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                                Radius.circular(5.0)),
+                            borderSide: BorderSide(color: Colors.grey)),
+                        labelText: '用户名',
+                        hintText: "输入用户名",
+                        icon: Icon(Icons.email)),
+                  )),
+              Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TextField(
+                    textInputAction: TextInputAction.done,
+                    maxLines: 1,
+                    keyboardType: TextInputType.text,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                                Radius.circular(5.0)),
+                            borderSide: BorderSide(color: Colors.grey)),
+                        labelText: '密码',
+                        hintText: "输入密码",
+                        icon: Icon(Icons.lock)),
+                  )),
 
-            ///TextFormField主要用于Form表单，TextField是普通输入框
-            TextFormField(
-              decoration: const InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: '请输入用户名',
-                  labelText: '用户名',
-                  prefixText: '用户名：'),
-              onSaved: (String value) {
-                _name = value;
-              },
-              validator: (String value) {
-                return value.contains('@') ? '用户名里不要使用@符号' : null;
-              },
-            ),
-            TextFormField(
-              decoration: InputDecoration(
-                  labelText: '密码',
-                  icon: Icon(Icons.lock),
-                  hintText: '请输入用户名',
-                  prefixText: '密码：'),
-              maxLines: 1,
-              maxLength: 32,
-              obscureText: true,
-              keyboardType: TextInputType.numberWithOptions(),
-              validator: (value) {},
-              onSaved: (value) {
-                _password = value;
-              },
-              onFieldSubmitted: (value) {},
-            ),
-
-            ///被Tooltip包裹的控件长按弹出tips
-            Tooltip(
-              message: '表单提交',
-              child: RaisedButton(
-                child: Text('登录'),
-                onPressed: () {
-                  onSubmit();
+              ///TextFormField主要用于Form表单，TextField是普通输入框
+              TextFormField(
+                decoration: const InputDecoration(
+                    icon: Icon(Icons.person),
+                    hintText: '请输入用户名',
+                    labelText: '用户名',
+                    prefixText: '用户名：'),
+                onSaved: (String value) {
+                  _name = value;
+                },
+                validator: (String value) {
+                  return value.contains('@') ? '用户名里不要使用@符号' : null;
                 },
               ),
-            ),
-          ],
+              TextFormField(
+                decoration: InputDecoration(
+                    labelText: '密码',
+                    icon: Icon(Icons.lock),
+                    hintText: '请输入用户名',
+                    prefixText: '密码：'),
+                maxLines: 1,
+                maxLength: 32,
+                obscureText: true,
+                keyboardType: TextInputType.numberWithOptions(),
+                validator: (value) {},
+                onSaved: (value) {
+                  _password = value;
+                },
+                onFieldSubmitted: (value) {},
+              ),
+
+              ///被Tooltip包裹的控件长按弹出tips
+              Tooltip(
+                message: '表单提交',
+                child: RaisedButton(
+                  child: Text('登录'),
+                  onPressed: () {
+                    onSubmit();
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
